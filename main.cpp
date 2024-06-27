@@ -17,6 +17,8 @@ ST25R95 st25r95(&spi, &cs, &irq_n);
 
 int main()
 {
+    st25r95.initialize();
+    st25r95.get_idn_value();
     while (true) {
         led1 = !led1;
         if (led1) {
