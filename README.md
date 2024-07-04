@@ -4,12 +4,14 @@ Mbed OS Example for the NFC reader ST25R95 from STMicroelectronics
 ## Requirements
 ### Hardware requirements
 The following boards are required:
-- *List mbed_stm-st25r95 hardware requirements here*
+- Zest_Core_STM32L4A6RG
+- Zest_Adapter_Click, with mounted NFC Click 6
 
 ### Software requirements
 mbed_stm-st25r95 makes use of the following libraries (automatically
 imported by `mbed deploy` or `mbed import`):
-- *List mbed_stm-st25r95 software requirements here*
+- [Mbed OS](https://github.com/ARMmbed/mbed-os)
+- [ST25R95](https://github.com/catie-aq/mbed_stm-st25r95.git)
 
 ## Usage
 To clone **and** deploy the project in one command, use `mbed import` and skip to the
