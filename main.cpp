@@ -11,18 +11,24 @@ DigitalOut cs(SPI1_CS);
 DigitalOut irq_n(PWM1_OUT);
 ST25R95 st25r95(&spi, &cs, &irq_n);
 char test[4];
+
 int main()
 {
     st25r95.initialize();
     st25r95.select_14443_a_protocol();
     while (true) {
-        if (st25r95.get_tag_value(test) != 0)
-        {
-            for (size_t i = 0; i < 4; i++)
-            {
-                printf("%02X ",test[i]);
+        if (st25r95.tag_is_detected()) {
+            if (st25r95.no_multiple_tag()) {
+                st25r95.get_tag_value(test);
+                for (size_t i = 0; i < 4; i++) {
+                    printf("%02X ", test[i]);
+                }
+                printf("\n");
+            } else {
+                printf("Multiple Tag Detected\n");
             }
-            printf("\n");
+
+        } else {
         }
         led1 = !led1;
     }
