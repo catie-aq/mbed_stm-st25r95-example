@@ -15,11 +15,11 @@ char test[4];
 int main()
 {
     st25r95.initialize();
-    st25r95.select_14443_a_protocol();
+    st25r95.protocol(0x02);
     while (true) {
         if (st25r95.tag_is_detected()) {
             if (st25r95.no_multiple_tag()) {
-                st25r95.get_tag_value(test);
+                st25r95.fill_response(test);
                 for (size_t i = 0; i < 4; i++) {
                     printf("%02X ", test[i]);
                 }
